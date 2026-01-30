@@ -33,23 +33,27 @@ export const useSettingsStore = defineStore("settings", {
     const animationsEnabled = ref(true);
     const autostartEnabled = ref(false);
     const disableSpellcheck = ref(false);
+    const selectedFont = ref("System Default");
 
     /* Global board settings */
     const columnZoomLevel = ref(0);
     const addToTopOfColumnButtonEnabled = ref(false);
     const displayColumnCardCountEnabled = ref(false);
     const defaultRelativeDueDatesEnabled = ref(false);
+    const autoColorCardsEnabled = ref(false);
 
     return {
   locale,
   animationsEnabled,
   autostartEnabled,
   disableSpellcheck,
+  selectedFont,
 
   columnZoomLevel,
   addToTopOfColumnButtonEnabled,
   displayColumnCardCountEnabled,
   defaultRelativeDueDatesEnabled,
+  autoColorCardsEnabled,
 
   boardSortingOption,
   reverseSorting,
@@ -63,11 +67,13 @@ export const useSettingsStore = defineStore("settings", {
       const localeSaved: string = await store.get("locale") ?? "en";
       const animationsEnabledSaved: boolean = await store.get("animationsEnabled") ?? true;
       const autostartEnabledSaved: boolean = await isEnabled() ?? false;
+      const selectedFontSaved: string = await store.get("selectedFont") ?? "System Default";
 
       const columnZoomLevelSaved: number = await store.get("columnZoomLevel") ?? 0;
       const addToTopOfColumnButtonEnabledSaved: boolean = await store.get("addToTopOfColumnButtonEnabled") ?? false;
       const displayColumnCardCountEnabledSaved: boolean = await store.get("displayColumnCardCountEnabled") ?? false;
       const defaultRelativeDueDatesEnabledSaved: boolean = await store.get("defaultRelativeDueDatesEnabled") ?? false;
+      const autoColorCardsEnabledSaved: boolean = await store.get("autoColorCardsEnabled") ?? false;
 
       const boardSortingOptionSaved: string = (await store.get("boardSortingOption")) ?? "default";
       const reverseSortingSavedRaw: unknown = await store.get("reverseSorting");
@@ -78,10 +84,12 @@ export const useSettingsStore = defineStore("settings", {
       this.locale = localeSaved;
       this.animationsEnabled = animationsEnabledSaved;
       this.autostartEnabled = autostartEnabledSaved;
+      this.selectedFont = selectedFontSaved;
       this.columnZoomLevel = columnZoomLevelSaved;
       this.addToTopOfColumnButtonEnabled = addToTopOfColumnButtonEnabledSaved;
       this.displayColumnCardCountEnabled = displayColumnCardCountEnabledSaved;
       this.defaultRelativeDueDatesEnabled = defaultRelativeDueDatesEnabledSaved;
+      this.autoColorCardsEnabled = autoColorCardsEnabledSaved;
       this.boardSortingOption =
         boardSortingOptionSaved === "alphabetically" ||
         boardSortingOptionSaved === "edited" ||
@@ -148,6 +156,16 @@ export const useSettingsStore = defineStore("settings", {
     async setReverseSorting(value: boolean) {
       this.reverseSorting = value;
       await useTauriStore().store.set("reverseSorting", value);
+    },
+
+    async setAutoColorCardsEnabled(value: boolean) {
+      this.autoColorCardsEnabled = value;
+      await useTauriStore().store.set("autoColorCardsEnabled", value);
+    },
+
+    async setSelectedFont(value: string) {
+      this.selectedFont = value;
+      await useTauriStore().store.set("selectedFont", value);
     }
   }
 });

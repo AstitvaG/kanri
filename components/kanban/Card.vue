@@ -31,7 +31,7 @@ limitations under the License.
             : {},
         ]"
         class="kanban-card border-elevation-3 flex min-h-[30px] w-full cursor-pointer flex-col items-start gap-1 rounded-[3px] border p-3"
-        @click.self="$emit('openEditCardModal', card)"
+        @dblclick="$emit('moveCardToNextColumn', card.id)"
       >
         <div
           :class="{ 'pb-1': cardHasNoExtraProperties }"
@@ -203,6 +203,7 @@ const emit = defineEmits<{
   (e: "setCardName", cardId: string | undefined, name: string): void;
   (e: "updateCardTags", cardId: string | undefined, tags: Array<Tag>): void;
   (e: "duplicateCard", cardId: string | undefined): void;
+  (e: "moveCardToNextColumn", cardId: string | undefined): void;
 }>();
 
 const globalSettingsStore = useSettingsStore();

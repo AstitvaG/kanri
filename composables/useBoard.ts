@@ -98,6 +98,11 @@ export function useBoard(id: string | Ref<string>) {
     store.duplicateCard(board.value.id, columnId, cardId);
   }
 
+  function moveCard(sourceColumnId: string, targetColumnId: string, cardId: string) {
+    if (!board.value) return;
+    store.moveCard(board.value.id, board.value.id, sourceColumnId, targetColumnId, cardId);
+  }
+
   function deleteCard(columnId: string, cardId: string | undefined) {
     if (!board.value) return;
     if (!cardId) return;
@@ -222,6 +227,12 @@ export function useBoard(id: string | Ref<string>) {
     store.updateGlobalTagName(board.value.id, tagId, newName);
   };
 
+  // Apply colors to all cards
+  function applyColorsToAllCards() {
+    if (!board.value) return;
+    store.applyColorsToAllCards(board.value.id);
+  }
+
   return {
     // state
     board,
@@ -237,6 +248,7 @@ export function useBoard(id: string | Ref<string>) {
     updateBoardPin,
     duplicate,
     remove,
+    applyColorsToAllCards,
 
     // column actions
     addColumn,
@@ -249,6 +261,7 @@ export function useBoard(id: string | Ref<string>) {
     deleteCard,
     deleteAllColumnCards,
     duplicateCard,
+    moveCard,
     mutateCard,
     reorderCards,
     setCardName,

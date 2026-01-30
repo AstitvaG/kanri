@@ -187,6 +187,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
                 <span class="text-dim-2"><PhExport class="size-5" /></span>
                 <span>{{ $t("pages.kanban.exportBoardAction") }}</span>
               </DropdownMenuItem>
+              <DropdownMenuItem
+                class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2"
+                @click="board.applyColorsToAllCards()"
+              >
+                <span class="text-dim-2"><PhPaintBrush class="size-5" /></span>
+                <span>Apply colors to all cards</span>
+              </DropdownMenuItem>
               <div class="my-1 border-t border-elevation-3"></div>
               <!-- Group 2: Pin/unpin -->
               <DropdownMenuItem
@@ -276,6 +283,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
                   @updateColumnTitle="board.setColumnTitle"
                   @setCardName="board.setCardName"
                   @duplicateCard="board.duplicateCard"
+                  @moveCardToNextColumn="moveCardToNextColumn"
                   @reorderCards="board.reorderCards"
                 />
               </Draggable>
@@ -311,7 +319,7 @@ import emitter from "@/utils/emitter";
 
 import { PhotoIcon } from "@heroicons/vue/24/outline";
 import { EllipsisHorizontalIcon, PlusIcon } from "@heroicons/vue/24/solid";
-import { PhHashStraight, PhTrash, PhCopy, PhPencil, PhExport, PhPushPin } from "@phosphor-icons/vue";
+import { PhHashStraight, PhTrash, PhCopy, PhPencil, PhExport, PhPushPin, PhPaintBrush } from "@phosphor-icons/vue";
 
 import { save } from "@tauri-apps/plugin-dialog";
 import { writeTextFile, exists } from "@tauri-apps/plugin-fs";
@@ -583,10 +591,12 @@ const keyDownListener = (e: KeyboardEvent) => {
     return;
   }
 
-  // ctrl + n for new card in the last column
-  if (e.key === "n" || (columnCardAddMode.value === true && e.altKey)) {
+  // ctrl + n for new card in the first column
+  if (e.key === "n") {
+    if (boardContent.value.columns.length === 0) return;
+    const firstColumnID = boardContent.value.columns[0].id;
     columnCardAddMode.value = true;
-    emitter.emit("enableColumnCardAddMode", columnID);
+    emitter.emit("enableColumnCardAddMode", firstColumnID);
     return;
   }
 };
@@ -672,6 +682,25 @@ const removeCardWithConfirmation = async (
 
   draggingEnabled.value = true;
   emitter.emit("columnDraggingOn");
+};
+
+const moveCardToNextColumn = (columnId: string, cardId: string | undefined) => {
+  if (!boardContent.value || !cardId) return;
+
+  // Find current column index
+  const currentColumnIndex = boardContent.value.columns.findIndex((col: Column) => col.id === columnId);
+  if (currentColumnIndex === -1) return;
+
+  // Calculate next column index (wrap around to first if at end)
+  const nextColumnIndex = (currentColumnIndex + 1) % boardContent.value.columns.length;
+
+  // If only one column, do nothing
+  if (currentColumnIndex === nextColumnIndex) return;
+
+  const targetColumnId = boardContent.value.columns[nextColumnIndex].id;
+
+  // Move the card
+  board.moveCard(columnId, targetColumnId, cardId);
 };
 
 const removeAllColumnCards = async (

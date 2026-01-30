@@ -115,6 +115,18 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         </div>
       </div>
 
+      <div class="mt-6 flex w-[48rem] flex-row items-start justify-between">
+        <div>
+          <h3 class="text-lg font-semibold">
+            Font Selection
+          </h3>
+          <span class="text-dim-2">
+            Choose a font for the application interface
+          </span>
+        </div>
+        <FontSelector />
+      </div>
+
       <div v-if="themeEditorDisplayed" class="mt-6 text-lg">
         <h3 class="mb-2 font-semibold">
           {{ $t("pages.settings.customThemeEditorHeading") }}
@@ -218,6 +230,26 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
           v-model:checked="globalSettingsStore.defaultRelativeDueDatesEnabled"
           class="bg-elevation-2 bg-accent-checked relative flex h-[24px] w-[42px] cursor-pointer rounded-full shadow-sm focus-within:outline focus-within:outline-black"
           @update:checked="(val) => globalSettingsStore.setDefaultRelativeDueDatesEnabled(val)"
+        >
+          <SwitchThumb
+            class="bg-button-text my-auto block size-[18px] translate-x-0.5 rounded-full shadow-sm transition-transform duration-100 will-change-transform data-[state=checked]:translate-x-[19px]"
+          />
+        </SwitchRoot>
+      </div>
+
+      <div class="mt-4 flex w-[48rem] flex-row items-start justify-between">
+        <div>
+          <h3 class="text-lg">
+            Auto-color cards by first word
+          </h3>
+          <span class="text-dim-2">
+            Automatically assign colors to new cards based on their first word. Same words always get the same color.
+          </span>
+        </div>
+        <SwitchRoot
+          v-model:checked="globalSettingsStore.autoColorCardsEnabled"
+          class="bg-elevation-2 bg-accent-checked relative flex h-[24px] w-[42px] cursor-pointer rounded-full shadow-sm focus-within:outline focus-within:outline-black"
+          @update:checked="(val) => globalSettingsStore.setAutoColorCardsEnabled(val)"
         >
           <SwitchThumb
             class="bg-button-text my-auto block size-[18px] translate-x-0.5 rounded-full shadow-sm transition-transform duration-100 will-change-transform data-[state=checked]:translate-x-[19px]"

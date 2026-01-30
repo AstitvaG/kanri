@@ -100,6 +100,31 @@ const increaseSaturation = (hex) => {
 };
 
 const cssVars = computed(() => {
+  const fontList = [
+    { name: "System Default", value: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" },
+    { name: "Arial", value: "Arial, sans-serif" },
+    { name: "Helvetica", value: "Helvetica, Arial, sans-serif" },
+    { name: "Times New Roman", value: "'Times New Roman', Times, serif" },
+    { name: "Georgia", value: "Georgia, serif" },
+    { name: "Courier New", value: "'Courier New', Courier, monospace" },
+    { name: "Verdana", value: "Verdana, sans-serif" },
+    { name: "Trebuchet MS", value: "'Trebuchet MS', sans-serif" },
+    { name: "Comic Sans MS", value: "'Comic Sans MS', cursive" },
+    { name: "Impact", value: "Impact, fantasy" },
+    { name: "Palatino", value: "Palatino, 'Palatino Linotype', serif" },
+    { name: "Garamond", value: "Garamond, serif" },
+    { name: "Bookman", value: "Bookman, serif" },
+    { name: "Tahoma", value: "Tahoma, sans-serif" },
+    { name: "Monaco", value: "Monaco, monospace" },
+    { name: "Consolas", value: "Consolas, monospace" },
+    { name: "Lucida Console", value: "'Lucida Console', monospace" },
+    { name: "SF Pro (macOS)", value: "-apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif" },
+    { name: "Segoe UI (Windows)", value: "'Segoe UI', Tahoma, sans-serif" },
+    { name: "Ubuntu (Linux)", value: "Ubuntu, sans-serif" },
+  ];
+
+  const selectedFontValue = fontList.find(f => f.name === settings.selectedFont)?.value || fontList[0].value;
+
   if (!savedColors.value) {
     // until our store gets propagated with the saved colors, use dark theme as fallback
     return {
@@ -116,6 +141,7 @@ const cssVars = computed(() => {
       "--text-dim-2": dark.textD2,
       "--text-dim-3": dark.textD3,
       "--text-dim-4": dark.textD4,
+      "--font-family": selectedFontValue,
     };
   } else {
     return {
@@ -132,6 +158,7 @@ const cssVars = computed(() => {
       "--text-dim-2": savedColors.value.textD2,
       "--text-dim-3": savedColors.value.textD3,
       "--text-dim-4": savedColors.value.textD4,
+      "--font-family": selectedFontValue,
     };
   }
 });
@@ -148,6 +175,7 @@ const cssVars = computed(() => {
 .default-layout {
   background-color: var(--bg-primary);
   color: var(--text);
+  font-family: var(--font-family);
   transition: color 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: background-color 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   overscroll-behavior: none;

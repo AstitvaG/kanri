@@ -23,6 +23,7 @@ import { defineStore } from "pinia";
 import type { Board, Column, Card, Tag } from "@/types/kanban-types";
 import { useTauriStore } from "@/stores/tauriStore";
 import { generateUniqueID } from "@/utils/idGenerator";
+import { getColorFromFirstWord } from "@/utils/cardColorUtils";
 
 type Pin = { id: string; title: string; pinIcon?: string; pinIconText?: string };
 
@@ -255,6 +256,15 @@ export const useBoardsStore = defineStore("boards", {
       const col = b.columns.find(c => c.id === columnId);
       if (!col) return;
 
+      // Apply auto-color if enabled and card doesn't already have a color
+      const settingsStore = useSettingsStore();
+      if (settingsStore.autoColorCardsEnabled && !card.color) {
+        const autoColor = getColorFromFirstWord(card.name);
+        if (autoColor) {
+          card.color = autoColor;
+        }
+      }
+
       if (addToTop) {
         col.cards.unshift(card);
       } else {
@@ -345,6 +355,39 @@ export const useBoardsStore = defineStore("boards", {
       targetCol.cards.push(card);
       targetBoard.lastEdited = new Date();
       sourceBoard.lastEdited = new Date();
+    },
+
+    // Apply auto-color to all cards in a board that don't already have colors
+    applyColorsToAllCards(boardId: string) {
+      const settingsStore = useSettingsStore();
+      if (!settingsStore.autoColorCardsEnabled) {
+        console.log('Auto-color is disabled. Enable it in Settings > Preferences to use this feature.');
+        return;
+      }
+
+      const b = this.boardById(boardId);
+      if (!b) return;
+
+      let colorsApplied = 0;
+
+      // Iterate through all columns and cards
+      b.columns.forEach(column => {
+        column.cards.forEach(card => {
+          // Apply color to all cards based on first word
+          const autoColor = getColorFromFirstWord(card.name);
+          if (autoColor) {
+            card.color = autoColor;
+            colorsApplied++;
+          }
+        });
+      });
+
+      if (colorsApplied > 0) {
+        b.lastEdited = new Date();
+        console.log(`Applied colors to ${colorsApplied} cards in board "${b.title}"`);
+      } else {
+        console.log('No cards found to color.');
+      }
     },
 
     // Debounced auto-save of board properties
