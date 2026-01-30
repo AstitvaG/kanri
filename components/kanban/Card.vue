@@ -133,6 +133,50 @@ limitations under the License.
             <span :class="taskTextClass">{{ getFormattedDueDate }}</span>
           </div>
         </div>
+
+        <!-- Task list display -->
+        <div
+          v-if="tasks && tasks.length > 0"
+          class="mt-2 flex w-full flex-col gap-1.5"
+        >
+          <div
+            v-for="task in tasks"
+            :key="task.id"
+            class="flex flex-row items-start gap-2"
+            @click.stop="toggleTask(task.id)"
+            @dblclick.stop
+          >
+            <CheckboxRoot
+              v-model:checked="task.finished"
+              class="bg-elevation-4 bg-elevation-2-hover border-elevation-5 mt-0.5 flex shrink-0 appearance-none items-center justify-center rounded-[4px] border outline-none cursor-pointer"
+              :class="checkboxSizeClass"
+              @click.stop
+              @dblclick.stop
+              @update:checked="toggleTask(task.id)"
+            >
+              <CheckboxIndicator
+                class="flex size-full items-center justify-center rounded"
+              >
+                <PhCheck
+                  weight="bold"
+                  class="text-accent-lighter"
+                  :class="checkIconSizeClass"
+                />
+              </CheckboxIndicator>
+            </CheckboxRoot>
+            <span
+              :class="[
+                task.finished ? 'line-through opacity-60' : '',
+                cardTextColorDim,
+                taskItemTextClass,
+              ]"
+              class="text-no-overflow-task flex-1 cursor-pointer"
+              @dblclick.stop
+            >
+              {{ task.name }}
+            </span>
+          </div>
+        </div>
       </div>
     </ContextMenuTrigger>
     <ContextMenuPortal to=".default-layout">
@@ -170,6 +214,7 @@ import type { Card, Tag } from "@/types/kanban-types";
 import { getContrast } from "~/utils/colorUtils";
 import { XMarkIcon } from "@heroicons/vue/24/solid";
 import {
+  PhCheck,
   PhCheckCircle,
   PhChecks,
   PhClock,
@@ -178,6 +223,8 @@ import {
 } from "@phosphor-icons/vue";
 
 import {
+  CheckboxIndicator,
+  CheckboxRoot,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuPortal,
@@ -324,6 +371,51 @@ const taskTextClass = computed(() => {
       return "text-lg";
     default:
       return "text-sm";
+  }
+});
+
+const taskItemTextClass = computed(() => {
+  switch (props.zoomLevel) {
+    case -1:
+      return "text-xs";
+    case 0:
+      return "text-sm";
+    case 1:
+      return "text-base";
+    case 2:
+      return "text-xl";
+    default:
+      return "text-sm";
+  }
+});
+
+const checkboxSizeClass = computed(() => {
+  switch (props.zoomLevel) {
+    case -1:
+      return "size-3";
+    case 0:
+      return "size-4";
+    case 1:
+      return "size-5";
+    case 2:
+      return "size-7";
+    default:
+      return "size-4";
+  }
+});
+
+const checkIconSizeClass = computed(() => {
+  switch (props.zoomLevel) {
+    case -1:
+      return "size-2.5";
+    case 0:
+      return "size-3";
+    case 1:
+      return "size-4";
+    case 2:
+      return "size-6";
+    default:
+      return "size-3";
   }
 });
 
@@ -496,6 +588,28 @@ const updateCardName = () => {
   emit("setCardName", props.card?.id, name.value);
   cardNameEditMode.value = false;
   emit("enableDragging");
+};
+
+const toggleTask = (taskId: string | undefined) => {
+  if (!tasks.value || !taskId) return;
+
+  const updatedTasks = tasks.value.map(task => {
+    if (task.id === taskId) {
+      return { ...task, finished: !task.finished };
+    }
+    return task;
+  });
+
+  tasks.value = updatedTasks;
+
+  // Update the card's tasks through the parent
+  const board = useBoardsStore();
+  const columnId = inject('columnId') as string;
+  if (columnId && props.card.id) {
+    board.mutateCard(useRoute().params.id as string, columnId, props.card.id, (card) => {
+      card.tasks = updatedTasks;
+    });
+  }
 };
 </script>
 

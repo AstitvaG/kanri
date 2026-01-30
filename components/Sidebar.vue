@@ -21,7 +21,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
 <template>
   <nav
     :class="zIndexDown ? '' : 'z-50'"
-    class="border-elevation-1 bg-sidebar mr-8 flex h-screen flex-col items-center justify-between overflow-hidden border-r-2 px-8 pb-6 pt-5 shadow-md"
+    class="sidebar-translucent border-elevation-1 mr-8 flex h-screen flex-col items-center justify-between overflow-hidden border-r-2 px-8 pb-6 pt-5 shadow-md"
   >
     <ModalNewBoard
       v-show="newBoardModalVisible"
@@ -203,11 +203,20 @@ const updateAddButton = () => {
 </script>
 
 <style scoped>
-.bg-sidebar {
-  background: radial-gradient(
-    circle at top left,
-    var(--elevation-1) 10%,
-    transparent
-  );
+.sidebar-translucent {
+  background-color: color-mix(in srgb, var(--elevation-1) 70%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+  .sidebar-translucent {
+    background: radial-gradient(
+      circle at top left,
+      var(--elevation-1) 10%,
+      transparent
+    );
+  }
 }
 </style>
