@@ -24,7 +24,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       <Tooltip v-if="isActivePin">
         <template #trigger>
           <nuxt-link :to="'/kanban/' + props.board.id">
-            <div class="bg-elevation-3 transition-button rounded-md p-2">
+            <div class="bg-elevation-3 transition-button rounded-apple p-2">
               <span
                 v-if="customChar"
                 class="size-7 flex items-center justify-center text-[20px] leading-none"
@@ -43,7 +43,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       <Tooltip v-else>
         <template #trigger>
           <nuxt-link :to="'/kanban/' + props.board.id">
-            <div class="bg-elevation-2-hover transition-button rounded-md p-2">
+            <div class="bg-elevation-2-hover transition-button rounded-apple p-2">
               <span
                 v-if="customChar"
                 class="size-7 flex items-center justify-center text-[20px] leading-none"
@@ -62,18 +62,18 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
 
     <ContextMenuPortal to=".default-layout">
       <ContextMenuContent
-        class="text-normal bg-primary-darker border-elevation-1 icon-menu z-[999] w-[300px] rounded-md border p-1 shadow-lg"
+        class="text-normal bg-primary-darker border-elevation-1 icon-menu z-[999] w-[300px] rounded-apple border p-1 shadow-lg"
       >
         <div class="px-2 pt-1.5">
-          <div class="mb-2 flex rounded-md bg-elevation-2 p-0.5 text-xs font-medium">
+          <div class="mb-2 flex rounded-apple bg-elevation-2 p-0.5 text-xs font-medium">
             <button
-              class="flex-1 rounded-sm px-2 py-1 transition-colors"
+              class="flex-1 rounded-apple-sm px-2 py-1 transition-colors"
               :class="activeTab === 'icons' ? 'bg-elevation-3' : 'hover:bg-elevation-1'
               "
               @click="activeTab = 'icons'"
             >Icons</button>
             <button
-              class="flex-1 rounded-sm px-2 py-1 transition-colors"
+              class="flex-1 rounded-apple-sm px-2 py-1 transition-colors"
               :class="activeTab === 'custom' ? 'bg-elevation-3' : 'hover:bg-elevation-1'"
               @click="activeTab = 'custom'"
             >Custom</button>
@@ -96,7 +96,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
               <ContextMenuItem
                 v-for="icon in searchResults"
                 :key="icon.name"
-                class="bg-elevation-2-hover flex cursor-pointer items-center justify-center rounded-md p-2"
+                class="bg-elevation-2-hover flex cursor-pointer items-center justify-center rounded-apple p-2"
                 :class="{ 'bg-elevation-3': selectedIconName === icon.name }"
                 @click="selectIcon(icon.component, icon.name)"
               >
@@ -119,7 +119,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
                 <ContextMenuItem
                   v-for="icon in getIconsByCategory(category)"
                   :key="icon.name"
-                  class="bg-elevation-2-hover flex cursor-pointer items-center justify-center rounded-md p-2"
+                  class="bg-elevation-2-hover flex cursor-pointer items-center justify-center rounded-apple p-2"
                   :class="{ 'bg-elevation-3': selectedIconName === icon.name }"
                   @click="selectIcon(icon.component, icon.name)"
                 >
@@ -170,7 +170,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         <ContextMenuSeparator class="bg-elevation-1 my-2 h-px" />
         <div class="px-2 pb-2">
           <button
-            class="unpin-button bg-destructive/80 hover:bg-destructive text-destructive-content w-full rounded-md px-3 py-1.5 text-sm font-semibold transition-colors"
+            class="unpin-button bg-destructive/80 hover:bg-destructive text-destructive-content w-full rounded-apple px-3 py-1.5 text-sm font-semibold transition-colors"
             @click="unpin"
           >Unpin Board</button>
         </div>

@@ -22,7 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
   <div
     ref="columnDOMElement"
     :class="[
-      'kanban-column bg-elevation-1 max-h-column flex flex-col rounded-lg p-2',
+      'kanban-column bg-elevation-1 max-h-column flex flex-col rounded-apple-lg p-2',
       columnSizeClass,
       columnSpacingClass,
     ]"
@@ -55,7 +55,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         v-focus
         :v-disable-spellcheck="settings.disableSpellcheck"
         :class="[
-          'bg-elevation-2 border-accent text-no-overflow -m-2 mr-2 w-full rounded-sm border-2 border-dotted px-2 outline-none font-bold text-lg',
+          'bg-elevation-2 border-accent text-no-overflow -m-2 mr-2 w-full rounded-apple-sm border-2 border-dotted px-2 outline-none font-bold text-lg',
           inputSizeClass,
         ]"
         maxlength="1000"
@@ -70,7 +70,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       <Dropdown align="end">
         <template #trigger>
           <button
-          class="bg-elevation-1 bg-elevation-2-hover transition-button h-full rounded-md"
+          class="bg-elevation-1 bg-elevation-2-hover transition-button h-full rounded-apple"
           @click.prevent
           >
           <EllipsisHorizontalIcon class="size-6" />
@@ -78,19 +78,19 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         </template>
         <template #content>
             <DropdownMenuItem
-              class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2"
+              class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2"
               @click="enableCardAddMode(true)"
             >
                 {{$t('components.kanban.column.addCardTop')}}
             </DropdownMenuItem>
             <DropdownMenuItem
-              class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2"
+              class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2"
               @click="$emit('removeAllColumnCards', id)"
             >
-                 {{$t('components.kanban.card.deleteAllColumnCardsAction')}}               
+                 {{$t('components.kanban.card.deleteAllColumnCardsAction')}}
             </DropdownMenuItem>
             <DropdownMenuItem
-              class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2"
+              class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2"
               @click="$emit('removeColumn', id)"
             >
                 {{$t('components.kanban.column.deleteColumnAction')}}
@@ -102,7 +102,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
     <Container
       :get-child-payload="getChildPayload"
       :class="[
-        'max-h-65vh custom-scrollbar mt-2 overflow-y-auto rounded-sm',
+        'max-h-65vh custom-scrollbar mt-2 overflow-y-auto rounded-apple-sm',
         containerSpacingClass,
       ]"
       drag-class="cursor-grabbing"
@@ -149,7 +149,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         v-focus
         v-resizable
         :class="[
-          'bg-elevation-2 border-accent-focus border-2 border-transparent mb-2 overflow-hidden rounded-sm p-1 focus:border-dotted focus:outline-none',
+          'bg-elevation-2 border-accent-focus border-2 border-transparent mb-2 overflow-hidden rounded-apple-sm p-1 focus:border-dotted focus:outline-none',
           textAreaSizeClass,
         ]"
         maxlength="5000"
@@ -164,7 +164,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         <button
           id="submitButton"
           :class="[
-            'text-buttons transition-button bg-accent rounded-md px-2 py-1',
+            'text-buttons transition-button bg-accent rounded-apple px-2 py-1',
             buttonSizeClass,
           ]"
           @click="
@@ -176,7 +176,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         </button>
         <button
           :class="[
-            'bg-elevation-3-hover transition-button rounded-md px-2 py-1',
+            'bg-elevation-3-hover transition-button rounded-apple px-2 py-1',
             buttonSizeClass,
           ]"
           @click="
@@ -196,7 +196,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
     <div
       v-if="!cardAddMode"
       :class="[
-        'text-dim-1 bg-elevation-3-hover mt-2 flex cursor-pointer flex-row items-center gap-1 rounded-md py-1 font-medium',
+        'text-dim-1 bg-elevation-3-hover mt-2 flex cursor-pointer flex-row items-center gap-1 rounded-apple py-1 font-medium',
         addCardButtonSpacingClass,
       ]"
       @click="enableCardAddMode()"

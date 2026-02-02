@@ -26,7 +26,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       @click.self="clickOutsideClose ? $emit('closeModal') : () => {}"
     >
       <div
-        class="bg-elevation-1 min-h-content min-w-content rounded-md py-4 pl-8 pr-6 shadow-lg"
+        class="bg-elevation-1 min-h-content min-w-content rounded-apple-lg py-4 pl-8 pr-6 shadow-apple-lg"
       >
         <slot class="p-4" name="content" />
       </div>

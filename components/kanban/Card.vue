@@ -30,7 +30,7 @@ limitations under the License.
             ? { 'background-color': cardBackgroundColor }
             : {},
         ]"
-        class="kanban-card border-elevation-3 flex min-h-[30px] w-full cursor-pointer flex-col items-start gap-1 rounded-[3px] border p-3"
+        class="kanban-card border-elevation-3 flex min-h-[30px] w-full cursor-pointer flex-col items-start gap-1 rounded-apple-sm border p-3"
         @dblclick="$emit('moveCardToNextColumn', card.id)"
       >
         <div
@@ -54,7 +54,7 @@ limitations under the License.
               v-model="name"
               v-focus
               v-resizable
-              class="bg-elevation-3 text-normal m-0 size-full resize-none rounded-sm p-0 focus:outline-none"
+              class="bg-elevation-3 text-normal m-0 size-full resize-none rounded-apple-sm p-0 focus:outline-none"
               maxlength="1000"
               type="text"
               @blur="updateCardName"
@@ -97,7 +97,7 @@ limitations under the License.
           <div
             v-if="tasks && taskCompletionStatus !== '0/0'"
             :class="{
-              'bg-accent text-buttons rounded-sm px-1': allTasksCompleted,
+              'bg-accent text-buttons rounded-apple-sm px-1': allTasksCompleted,
             }"
             class="flex flex-row items-center gap-1"
           >
@@ -120,8 +120,8 @@ limitations under the License.
             v-if="dueDate"
             class="flex flex-row items-center gap-1"
             :class="{
-              'text-buttons rounded-sm bg-accent px-1': isDueDateCompleted,
-              'text-buttons rounded-sm bg-red-600 px-1': dueDateOverdue && !isDueDateCompleted,
+              'text-buttons rounded-apple-sm bg-accent px-1': isDueDateCompleted,
+              'text-buttons rounded-apple-sm bg-red-600 px-1': dueDateOverdue && !isDueDateCompleted,
             }"
           >
             <PhCheckCircle
@@ -183,7 +183,7 @@ limitations under the License.
       <ContextMenuContent :class="contextMenuClass">
         <ContextMenuItem
           value="Edit Name"
-          class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-md px-4 py-1.5"
+          class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-apple px-4 py-1.5"
           @click="enableCardEditMode()"
         >
           {{ $t("general.editNameAction") }}
@@ -191,14 +191,14 @@ limitations under the License.
         <KanbanMoveTo :card="card" />
         <ContextMenuItem
           value="Duplicate"
-          class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-md px-4 py-1.5"
+          class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-apple px-4 py-1.5"
           @click="$emit('duplicateCard', card.id)"
         >
           {{ $t("general.duplicateAction") }}
         </ContextMenuItem>
         <ContextMenuItem
           value="Delete"
-          class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-md px-4 py-1.5"
+          class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-apple px-4 py-1.5"
           @click="deleteCardWithConfirmation(card.id)"
         >
           {{ $t("general.deleteAction") }}
@@ -461,7 +461,7 @@ const cardTextColorDim = computed(() => {
 
 const contextMenuClass = computed(() => {
   let contextMenuClasses =
-    "bg-primary-darker border-elevation-1 z-[99999] min-w-[100px] rounded-md border p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] outline-none will-change-[opacity,transform]";
+    "bg-primary-darker border-elevation-1 z-[99999] min-w-[100px] rounded-apple border p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] outline-none will-change-[opacity,transform]";
 
   if (globalSettingsStore.animationsEnabled) {
     contextMenuClasses +=

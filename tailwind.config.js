@@ -7,6 +7,16 @@ module.exports = {
   plugins: [],
   theme: {
     extend: {
+      borderRadius: {
+        'apple-sm': '10px',
+        'apple': '12px',
+        'apple-lg': '16px',
+        'apple-xl': '20px',
+      },
+      boxShadow: {
+        'apple': '0 2px 16px rgba(0, 0, 0, 0.12)',
+        'apple-lg': '0 4px 24px rgba(0, 0, 0, 0.16)',
+      },
       keyframes: {
         slideDownAndFade: {
           from: { opacity: 0, transform: "translateY(-2px)" },

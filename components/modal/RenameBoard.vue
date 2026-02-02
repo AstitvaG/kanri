@@ -39,7 +39,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
             id="boardName"
             ref="boardNameInput"
             v-model="newBoardName"
-            class="placeholder:text-dim-3-placeholder bg-elevation-2 border-elevation-3 border-accent-focus h-10 max-w-80 rounded-md border p-2 transition-colors duration-300 focus:border-2 focus:border-dotted focus:outline-none"
+            class="placeholder:text-dim-3-placeholder bg-elevation-2 border-elevation-3 border-accent-focus h-10 max-w-80 rounded-apple border p-2 transition-colors duration-300 focus:border-2 focus:border-dotted focus:outline-none"
             maxlength="500"
             :placeholder="$t('modals.renameBoard.placeholder')"
             type="text"
@@ -57,7 +57,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
             {{ $t("general.cancelAction") }}
           </button>
           <button
-            class="bg-accent text-buttons transition-button rounded-md px-4 py-2"
+            class="bg-accent text-buttons transition-button rounded-apple px-4 py-2"
             @click="renameBoard()"
           >
             {{ $t("general.renameAction") }}

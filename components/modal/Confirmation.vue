@@ -52,7 +52,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
             {{ closeButtonText || $t("modal.confirmation.negative") }}
           </button>
           <button
-            class="bg-accent text-buttons transition-button rounded-md px-4 py-2"
+            class="bg-accent text-buttons transition-button rounded-apple px-4 py-2"
             @click="
               $emit('confirmAction', boardId);
               closeModal();

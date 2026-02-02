@@ -23,10 +23,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
     :class="zIndexDown ? '' : 'z-50'"
     class="sidebar-translucent border-elevation-1 mr-8 flex h-screen flex-col items-center justify-between overflow-hidden border-r-2 px-8 pb-6 pt-5 shadow-md"
   >
-    <ModalNewBoard
-      v-show="newBoardModalVisible"
-      @closeModal="newBoardModalVisible = false"
-    />
+    <Teleport to=".default-layout">
+      <ModalNewBoard
+        v-show="newBoardModalVisible"
+        @closeModal="newBoardModalVisible = false"
+      />
+    </Teleport>
     <Teleport to=".default-layout">
       <ModalHelp
         v-show="helpModalVisible"
@@ -35,7 +37,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
     </Teleport>
 
     <section id="items-top" class="flex flex-col items-center gap-4">
-      <div id="logo" class="flex flex-row rounded-md">
+      <div id="logo" class="flex flex-row rounded-apple">
         <IconKanri
           class="text-accent-logo-icon size-9 pl-1"
           @click="$router.push('/')"
@@ -45,7 +47,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       <Tooltip>
         <template #trigger>
           <button
-            class="bg-elevation-2-hover transition-button rounded-md p-2"
+            class="bg-elevation-2-hover transition-button rounded-apple p-2.5"
             @click="$router.push('/')"
           >
             <PhHouse class="size-7" />
@@ -58,7 +60,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       <Tooltip v-if="!showAddButton">
         <template #trigger>
           <button
-            class="bg-elevation-2-hover transition-button rounded-md p-2"
+            class="bg-elevation-2-hover transition-button rounded-apple p-2.5"
             @click="$router.go(-1)"
           >
             <PhArrowBendUpLeft class="size-7" />
@@ -71,7 +73,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       <Tooltip v-if="showAddButton">
         <template #trigger>
           <button
-            class="bg-elevation-2-hover transition-button rounded-md p-2"
+            class="bg-elevation-2-hover transition-button rounded-apple p-2.5"
             @click="newBoardModalVisible = true"
           >
             <IconPhPlusCircleDuotone class="text-accent size-7" />
@@ -90,7 +92,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       <Tooltip>
         <template #trigger>
           <nuxt-link to="/import">
-            <div class="bg-elevation-2-hover transition-button rounded-md p-2">
+            <div class="bg-elevation-2-hover transition-button rounded-apple p-2.5">
               <PhArrowsLeftRight class="size-7" />
             </div>
           </nuxt-link>
@@ -104,7 +106,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       <Tooltip>
         <template #trigger>
           <button
-            class="bg-elevation-2-hover transition-button rounded-md p-2"
+            class="bg-elevation-2-hover transition-button rounded-apple p-2.5"
             @click="helpModalVisible = true"
           >
             <PhQuestion class="size-7" />
@@ -117,7 +119,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       <Tooltip>
         <template #trigger>
           <nuxt-link to="/settings">
-            <div class="bg-elevation-2-hover transition-button rounded-md p-2">
+            <div class="bg-elevation-2-hover transition-button rounded-apple p-2.5">
               <PhGearSix class="size-7" />
             </div>
           </nuxt-link>

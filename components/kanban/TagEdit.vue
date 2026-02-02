@@ -20,7 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
 
 <template>
   <div
-    class="bg-elevation-2 flex w-full flex-row items-center justify-between gap-3 rounded-md px-2 py-1"
+    class="bg-elevation-2 flex w-full flex-row items-center justify-between gap-3 rounded-apple px-2 py-1"
   >
     <div class="flex flex-row items-center gap-2">
       <input
@@ -40,7 +40,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
           v-model="editedTagName"
           v-focus
           type="text"
-          class="bg-elevation-3 w-full rounded-md px-1 py-0.5 outline-none"
+          class="bg-elevation-3 w-full rounded-apple px-1 py-0.5 outline-none"
           @keyup.enter="saveTagName"
           @blur="saveTagName"
         />

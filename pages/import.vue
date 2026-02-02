@@ -27,20 +27,20 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
 
     <TabsRoot class="mt-4 flex w-1/2 flex-col" default-value="tab1">
       <TabsList
-        class="bg-elevation-1 relative flex shrink-0 rounded-md"
+        class="bg-elevation-1 relative flex shrink-0 rounded-apple"
         aria-label="Manage your account"
       >
         <TabsIndicator
-          class="bg-elevation-2 absolute bottom-0 left-0 h-full w-[--radix-tabs-indicator-size] translate-x-[--radix-tabs-indicator-position] rounded-md transition-[width,transform] duration-300"
+          class="bg-elevation-2 absolute bottom-0 left-0 h-full w-[--radix-tabs-indicator-size] translate-x-[--radix-tabs-indicator-position] rounded-apple transition-[width,transform] duration-300"
         />
         <TabsTrigger
-          class="tab-active-text z-10 flex h-[45px] flex-1 cursor-pointer select-none items-center justify-center rounded-md px-2 text-[16px] leading-none outline-none transition-colors duration-300"
+          class="tab-active-text z-10 flex h-[45px] flex-1 cursor-pointer select-none items-center justify-center rounded-apple px-2 text-[16px] leading-none outline-none transition-colors duration-300"
           value="tab1"
         >
           {{ $t("general.importAction") }}
         </TabsTrigger>
         <TabsTrigger
-          class="tab-active-text z-10 flex h-[45px] flex-1 cursor-pointer select-none items-center justify-center rounded-md px-2 text-[16px] leading-none outline-none transition-colors duration-300"
+          class="tab-active-text z-10 flex h-[45px] flex-1 cursor-pointer select-none items-center justify-center rounded-apple px-2 text-[16px] leading-none outline-none transition-colors duration-300"
           value="tab2"
         >
           {{ $t("general.exportAction") }}
@@ -62,19 +62,19 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
           }}</span>
           <div class="mt-2 flex flex-row gap-4">
             <button
-              class="bg-elevation-1 bg-elevation-2-hover border-accent cursor-pointer rounded-md border border-dotted p-4 font-semibold"
+              class="bg-elevation-1 bg-elevation-2-hover border-accent cursor-pointer rounded-apple border border-dotted p-4 font-semibold"
               @click="importFromKanriBoard"
             >
               {{ $t("pages.import.importOptionKanri") }}
             </button>
             <button
-              class="bg-elevation-1 bg-elevation-2-hover border-accent cursor-pointer rounded-md border border-dotted p-4 font-semibold"
+              class="bg-elevation-1 bg-elevation-2-hover border-accent cursor-pointer rounded-apple border border-dotted p-4 font-semibold"
               @click="importFromTrelloBoard"
             >
               {{ $t("pages.import.importOptionTrello") }}
             </button>
             <button
-              class="bg-elevation-1 bg-elevation-2-hover border-accent cursor-pointer rounded-md border border-dotted p-4 font-semibold"
+              class="bg-elevation-1 bg-elevation-2-hover border-accent cursor-pointer rounded-apple border border-dotted p-4 font-semibold"
               @click="importFromGithubProject"
             >
               {{ $t("pages.import.importOptionGithub") }}
@@ -88,13 +88,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
           }}</span>
           <div class="mt-2 flex flex-row gap-4">
             <button
-              class="bg-elevation-1 bg-elevation-2-hover border-accent cursor-pointer rounded-md border border-dotted p-4 font-semibold"
+              class="bg-elevation-1 bg-elevation-2-hover border-accent cursor-pointer rounded-apple border border-dotted p-4 font-semibold"
               @click="importFromKanriFull"
             >
               {{ $t("pages.import.importOptionKanri") }}
             </button>
             <button
-              class="bg-elevation-1 bg-elevation-2-hover border-accent cursor-pointer rounded-md border border-dotted p-4 font-semibold"
+              class="bg-elevation-1 bg-elevation-2-hover border-accent cursor-pointer rounded-apple border border-dotted p-4 font-semibold"
               @click="importFromKanbanElectronFull"
             >
               {{ $t("pages.import.importOptionKanbanElectron") }}
@@ -116,7 +116,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
             </p>
             <DropdownMenuRoot>
               <DropdownMenuTrigger
-                class="bg-elevation-1 bg-elevation-2-hover border-accent mt-4 cursor-pointer rounded-md border border-dotted p-2 px-8 font-semibold"
+                class="bg-elevation-1 bg-elevation-2-hover border-accent mt-4 cursor-pointer rounded-apple border border-dotted p-2 px-8 font-semibold"
               >
                 {{ $t("pages.import.exportTabPartialSelectButton") }}
               </DropdownMenuTrigger>
@@ -124,7 +124,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
                 <DropdownMenuContent
                   align="start"
                   :side-offset="5"
-                  class="bg-elevation-1 border-elevation-2 w-96 rounded-md border p-2"
+                  class="bg-elevation-1 border-elevation-2 w-96 rounded-apple border p-2"
                 >
                   <DropdownMenuLabel class="text-dim-3 mb-1 px-2 text-sm">
                     {{ $t("pages.import.exportTabPartialSelectPrompt") }}
@@ -133,7 +133,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
                   <DropdownMenuItem
                     v-for="board in boards"
                     :key="board.id"
-                    class="bg-elevation-3-hover cursor-pointer rounded-md px-2 py-0.5"
+                    class="bg-elevation-3-hover cursor-pointer rounded-apple px-2 py-0.5"
                     @select="exportSingleBoard(board.id)"
                   >
                     {{ board.title }}
@@ -150,7 +150,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
               {{ $t("pages.import.exportTabFullSubtext") }}
             </p>
             <button
-              class="bg-elevation-1 bg-elevation-2-hover border-accent mt-4 cursor-pointer rounded-md border border-dotted p-2 px-8 font-semibold"
+              class="bg-elevation-1 bg-elevation-2-hover border-accent mt-4 cursor-pointer rounded-apple border border-dotted p-2 px-8 font-semibold"
               @click="exportJSON()"
             >
               {{ $t("pages.import.exportTabFullButton") }}

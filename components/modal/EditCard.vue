@@ -67,7 +67,7 @@ limitations under the License.
                     @click="showCustomColorPopup = false"
                   />
                   <div
-                    class="bg-primary border-elevation-1 absolute -left-4 top-8 z-20 flex flex-col gap-1 rounded-md border p-3"
+                    class="bg-primary border-elevation-1 absolute -left-4 top-8 z-20 flex flex-col gap-1 rounded-apple border p-3"
                   >
                     <h2 class="mb-1 text-lg font-semibold">
                       {{ $t("modals.editCard.colorTitle") }}
@@ -240,7 +240,7 @@ limitations under the License.
             >
               <template #default="{ togglePopover }">
                 <button
-                  class="bg-elevation-2 bg-elevation-3-hover mt-1 flex items-center justify-center gap-2 rounded-md px-2 py-1"
+                  class="bg-elevation-2 bg-elevation-3-hover mt-1 flex items-center justify-center gap-2 rounded-apple px-2 py-1"
                   @click="() => togglePopover()"
                 >
                   <PhCalendar class="size-5" />
@@ -268,14 +268,14 @@ limitations under the License.
                     </div>
 
                     <button
-                      class="bg-elevation-1 bg-elevation-2-hover flex flex-row items-center justify-center gap-2 rounded-md px-2 py-1"
+                      class="bg-elevation-1 bg-elevation-2-hover flex flex-row items-center justify-center gap-2 rounded-apple px-2 py-1"
                       @click="resetDueDate"
                     >
                       <PhTrash class="mt-0.5 size-5" />
                       {{ $t("modals.editCard.dateRemove") }}
                     </button>
                     <button
-                      class="bg-accent flex flex-row items-center justify-center gap-2 rounded-md px-2 py-1"
+                      class="bg-accent flex flex-row items-center justify-center gap-2 rounded-apple px-2 py-1"
                       @click="isDueDateCompleted = !isDueDateCompleted; markDueDateCompleted()"
                     >
                       <PhCheck v-if="!isDueDateCompleted" class="mt-0.5 size-5" />
@@ -364,7 +364,7 @@ limitations under the License.
                           "
                           v-model="currentlyEditingTaskName"
                           v-focus
-                          class="bg-elevation-2 border-accent -mx-1.5 w-full rounded-md border-b-2 border-dotted px-1.5 py-0.5 outline-none"
+                          class="bg-elevation-2 border-accent -mx-1.5 w-full rounded-apple border-b-2 border-dotted px-1.5 py-0.5 outline-none"
                           type="text"
                           @blur="updateTask(index)"
                           @keypress.enter="updateTask(index)"
@@ -425,7 +425,7 @@ limitations under the License.
                 ref="newTaskInput"
                 v-model="newTaskName"
                 v-focus
-                class="bg-elevation-2 text-normal border-accent-focus pointer-events-auto w-[96%] rounded-md p-1 text-base focus:border-2 focus:border-dotted focus:outline-none"
+                class="bg-elevation-2 text-normal border-accent-focus pointer-events-auto w-[96%] rounded-apple p-1 text-base focus:border-2 focus:border-dotted focus:outline-none"
                 maxlength="1000"
                 :placeholder="$t('modals.editCard.newTaskPlaceholder')"
                 type="text"
@@ -433,7 +433,7 @@ limitations under the License.
               />
               <div v-if="taskAddMode" class="ml-0.5 mt-0.5 flex flex-row gap-4">
                 <button
-                  class="bg-accent text-buttons rounded-md px-4 py-1"
+                  class="bg-accent text-buttons rounded-apple px-4 py-1"
                   @click="createTask"
                 >
                   {{ $t("general.addAction") }}
@@ -449,7 +449,7 @@ limitations under the License.
               </div>
               <button
                 v-if="!taskAddMode"
-                class="bg-elevation-1 bg-elevation-2-hover mr-8 mt-1 flex h-min w-[96%] cursor-pointer flex-row items-center gap-2 rounded-md py-1 pl-0.5 pr-2"
+                class="bg-elevation-1 bg-elevation-2-hover mr-8 mt-1 flex h-min w-[96%] cursor-pointer flex-row items-center gap-2 rounded-apple py-1 pl-0.5 pr-2"
                 @click="enableTaskAddMode"
               >
                 <PlusIcon class="text-accent size-6" />
@@ -470,7 +470,7 @@ limitations under the License.
               @before-adding-tag="beforeTagAdd"
             />
             <button
-              class="bg-elevation-3 mt-2 w-fit rounded-md px-2 py-0.5 text-sm"
+              class="bg-elevation-3 mt-2 w-fit rounded-apple px-2 py-0.5 text-sm"
               @click="closeModalAndOpenTagEdit"
             >
               {{ $t("modals.editCard.tagsEdit") }}

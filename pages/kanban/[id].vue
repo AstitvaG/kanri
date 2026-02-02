@@ -99,7 +99,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
     <div class="absolute top-4 z-50 ml-8 w-[calc(100vw-112px)]">
       <h1
         v-if="!boardTitleEditing"
-        class="mb-1 max-h-12 w-full overflow-hidden break-words rounded-md bg-transparent py-1 pr-8 text-4xl font-bold"
+        class="mb-1 max-h-12 w-full overflow-hidden break-words rounded-apple bg-transparent py-1 pr-8 text-4xl font-bold"
         :class="[boardTitleColor]"
         @click="enableBoardTitleEditing()"
       >
@@ -109,7 +109,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         v-if="boardTitleEditing"
         v-model="boardContent.title"
         v-focus
-        class="bg-elevation-2 border-accent text-no-overflow mb-1 mr-2 -ml-2 h-12 w-min rounded-sm border-2 border-dotted px-2 text-4xl outline-none font-bold text-2xl"
+        class="bg-elevation-2 border-accent text-no-overflow mb-1 mr-2 -ml-2 h-12 w-min rounded-apple-sm border-2 border-dotted px-2 text-4xl outline-none font-bold text-2xl"
         maxlength="500"
         type="text"
         @blur="
@@ -126,7 +126,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         <div class="flex flex-row gap-2">
           <div class="flex flex-row gap-2">
             <button
-              class="bg-elevation-1 bg-elevation-2-hover transition-button flex flex-row gap-1 rounded-md px-4 py-1"
+              class="bg-elevation-1 bg-elevation-2-hover transition-button flex flex-row gap-1 rounded-apple px-4 py-1"
               @click="showCustomBgModal = true"
             >
               <PhotoIcon class="my-auto size-6" />
@@ -137,7 +137,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
           </div>
           <div class="flex flex-row gap-2">
             <button
-              class="bg-elevation-1 bg-elevation-2-hover transition-button flex flex-row gap-1 rounded-md px-4 py-1"
+              class="bg-elevation-1 bg-elevation-2-hover transition-button flex flex-row gap-1 rounded-apple px-4 py-1"
               @click="editTagModalVisible = true"
             >
               <PhHashStraight class="my-auto size-6" />
@@ -156,7 +156,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
           <Dropdown align="end">
             <template #trigger>
               <button
-              class="bg-elevation-1 bg-elevation-2-hover transition-button h-full rounded-md p-2"
+              class="bg-elevation-1 bg-elevation-2-hover transition-button h-full rounded-apple p-2"
               @click.prevent
               >
               <EllipsisHorizontalIcon class="size-6" />
@@ -167,28 +167,28 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
               <div class="flex flex-col">
               <!-- Group 1: Board actions -->
               <DropdownMenuItem
-                class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2"
+                class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2"
                 @click="renameBoardModal(boardContent?.id)"
               >
                 <span class="text-dim-2"><PhPencil class="size-5" /></span>
                 <span>{{ $t("pages.kanban.renameBoardAction") }}</span>
               </DropdownMenuItem>
               <DropdownMenuItem
-                class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2"
+                class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2"
                 @click="duplicateBoard"
               >
                 <span class="text-dim-2"><PhCopy class="size-5" /></span>
                 <span>{{ $t("pages.kanban.duplicateBoardAction") }}</span>
               </DropdownMenuItem>
               <DropdownMenuItem
-                class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2"
+                class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2"
                 @click="exportBoardToJson"
               >
                 <span class="text-dim-2"><PhExport class="size-5" /></span>
                 <span>{{ $t("pages.kanban.exportBoardAction") }}</span>
               </DropdownMenuItem>
               <DropdownMenuItem
-                class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2"
+                class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2"
                 @click="board.applyColorsToAllCards()"
               >
                 <span class="text-dim-2"><PhPaintBrush class="size-5" /></span>
@@ -197,7 +197,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
               <div class="my-1 border-t border-elevation-3"></div>
               <!-- Group 2: Pin/unpin -->
               <DropdownMenuItem
-                class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2"
+                class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2"
                 @click="toggleBoardPin"
               >
                 <span class="text-dim-2">
@@ -210,7 +210,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
               <div class="my-1 border-t border-elevation-3"></div>
               <!-- Group 3: Danger zone -->
               <DropdownMenuItem
-                class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2 text-red-500"
+                class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2 text-red-500"
                 @click="deleteBoardModal(boardContent?.id)"
               >
                 <span>
@@ -289,7 +289,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
               </Draggable>
               <div class="pr-8">
                 <div
-                  class="nodrag bg-elevation-1 bg-elevation-2-hover mr-8 flex h-min cursor-pointer flex-row items-center gap-2 rounded-md p-2"
+                  class="nodrag bg-elevation-1 bg-elevation-2-hover mr-8 flex h-min cursor-pointer flex-row items-center gap-2 rounded-apple p-2"
                   @click="board.addColumn()"
                 >
                   <PlusIcon class="text-accent size-6" />

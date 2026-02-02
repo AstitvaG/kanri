@@ -56,7 +56,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       <div class="flex flex-row gap-3 pr-2 w-full max-h-12">
         <!-- Search input -->
         <div
-          class="relative rounded-xl border border-elevation-2 bg-elevation-1 backdrop-blur supports-[backdrop-filter]:bg-elevation-1/50 shadow-sm focus-within:ring-2 focus-within:ring-accent/70 w-full"
+          class="relative rounded-apple-xl border border-elevation-2 bg-elevation-1 backdrop-blur supports-[backdrop-filter]:bg-elevation-1/50 shadow-sm focus-within:ring-2 focus-within:ring-accent/70 w-full"
         >
           <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
             <MagnifyingGlassIcon class="size-5 text-dim-3" />
@@ -64,13 +64,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
           <input
             v-model="searchQuery"
             :placeholder="searchPlaceholder"
-            class="w-full rounded-xl bg-transparent py-2 pl-12 pr-12 text-lg outline-none placeholder:text-dim-3"
+            class="w-full rounded-apple-xl bg-transparent py-2 pl-12 pr-12 text-lg outline-none placeholder:text-dim-3"
             type="text"
             aria-label="Search boards"
           />
           <button
             v-if="searchQuery"
-            class="absolute inset-y-0 right-0 mr-2 flex items-center rounded-md p-2 text-dim-2 hover:bg-elevation-2-hover"
+            class="absolute inset-y-0 right-0 mr-2 flex items-center rounded-apple p-2 text-dim-2 hover:bg-elevation-2-hover"
             @click="searchQuery = ''"
             aria-label="Clear search"
           >
@@ -85,7 +85,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         >
           <div class="flex items-center gap-2 max-h-12">
             <div
-              class="bg-elevation-1 bg-elevation-2-hover transition-button hide-popper-arrow w-fit rounded-md hover:cursor-pointer max-h-12"
+              class="bg-elevation-1 bg-elevation-2-hover transition-button hide-popper-arrow w-fit rounded-apple hover:cursor-pointer max-h-12"
             >
               <Dropdown>
                 <template #trigger>
@@ -103,7 +103,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
                   >
                     <DropdownMenuRadioItem
                       value="alphabetically"
-                      class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-md px-4 py-1.5 pl-[25px]"
+                      class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-apple px-4 py-1.5 pl-[25px]"
                       @click="sortBoardsAlphabetically()"
                     >
                       <DropdownMenuItemIndicator class="absolute left-2 w-[25px]">
@@ -113,7 +113,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem
                       value="default"
-                      class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-md px-4 py-1.5 pl-[25px] text-left"
+                      class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-apple px-4 py-1.5 pl-[25px] text-left"
                       @click="sortBoardsByCreationDate()"
                     >
                       <DropdownMenuItemIndicator class="absolute left-2 w-[25px]">
@@ -123,7 +123,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem
                       value="edited"
-                      class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-md px-4 py-1.5 pl-[25px] text-left"
+                      class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-apple px-4 py-1.5 pl-[25px] text-left"
                       @click="sortBoardsByEditDate()"
                     >
                       <DropdownMenuItemIndicator class="absolute left-2 w-[25px]">
@@ -135,7 +135,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
                   <DropdownMenuSeparator class="bg-elevation-2 m-[5px] h-px" />
                   <DropdownMenuCheckboxItem
                     v-model:checked="reverseSortOrder"
-                    class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-md px-4 py-1.5 pl-[25px] text-left"
+                    class="bg-elevation-2-hover flex w-full cursor-pointer flex-row items-center rounded-apple px-4 py-1.5 pl-[25px] text-left"
                     @click="reverseCurrentSorting"
                   >
                     <DropdownMenuItemIndicator class="absolute left-2 w-[25px]">
@@ -158,7 +158,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
     <main id="boards">
       <div
         v-if="boards.length === 0 && loading === false"
-        class="items-left mt-2 flex w-fit flex-col justify-center rounded-md p-2"
+        class="items-left mt-2 flex w-fit flex-col justify-center rounded-apple p-2"
       >
         <h3 class="text-xl font-bold">
           {{ $t("pages.index.noBoardsHeading") }}
@@ -173,7 +173,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
           {{ $t("pages.index.importDataPrompt") }}
         </p>
         <nuxt-link
-          class="bg-elevation-1 bg-elevation-2-hover border-accent cursor-pointer rounded-md border border-dotted p-4 text-center font-semibold"
+          class="bg-elevation-1 bg-elevation-2-hover border-accent cursor-pointer rounded-apple border border-dotted p-4 text-center font-semibold"
           to="/import"
         >
           {{ $t("pages.index.importDataButton") }}
@@ -186,7 +186,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
           <a
             href="https://discord.gg/AVqHrvxB9C"
             target="_blank"
-            class="bg-accent cursor-pointer rounded-md px-6 py-2 text-center font-semibold transition-colors"
+            class="bg-accent cursor-pointer rounded-apple px-6 py-2 text-center font-semibold transition-colors"
             >{{ $t("pages.index.joinDiscordButton") }}</a
           >
         </div>
@@ -196,7 +196,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         <!-- No results for current search -->
         <div
           v-if="!loading && searchQuery && visibleBoards?.length === 0"
-          class="items-left mt-2 flex w-fit flex-col justify-center rounded-md p-2 text-dim-2"
+          class="items-left mt-2 flex w-fit flex-col justify-center rounded-apple p-2 text-dim-2"
         >
           <h3 class="text-xl font-semibold">{{ noResultsText }}</h3>
         </div>
@@ -212,7 +212,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
             id="board-preview"
             :key="board.id"
             :to="'/kanban/' + board.id"
-            class="bg-board-preview border-elevation-1 flex flex-col rounded-md border-2 shadow-xl transition-transform hover:-translate-y-1"
+            class="bg-board-preview border-elevation-1 flex flex-col rounded-apple border-2 shadow-xl transition-transform hover:-translate-y-1"
           >
             <LazyKanbanBoardPreview
               :board="board"
@@ -229,7 +229,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
               <Dropdown align="end" :side-offset="-10">
                 <template #trigger>
                   <button
-                    class="bg-elevation-3-hover transition-button rounded-md px-1 py-0.5"
+                    class="bg-elevation-3-hover transition-button rounded-apple px-1 py-0.5"
                     @click.prevent
                   >
                     <EllipsisHorizontalIcon class="size-6" />
@@ -240,21 +240,21 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
                   <div class="flex flex-col">
                     <!-- Group 1: Board actions -->
                     <DropdownMenuItem
-                      class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2"
+                      class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2"
                       @click="renameBoardModal(board.id)"
                     >
                       <span class="text-dim-2"><PhPencil class="size-5" /></span>
                       <span>{{ $t("pages.kanban.renameBoardAction") }}</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem
-                      class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2"
+                      class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2"
                       @click="duplicateBoard(board.id)"
                     >
                       <span class="text-dim-2"><PhCopy class="size-5" /></span>
                       <span>{{ $t("pages.kanban.duplicateBoardAction") }}</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem
-                      class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2"
+                      class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2"
                       @click="exportBoardToJson(board.id)"
                     >
                       <span class="text-dim-2"><PhExport class="size-5" /></span>
@@ -263,7 +263,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
                     <div class="my-1 border-t border-elevation-3"></div>
                     <!-- Group 3: Danger zone -->
                     <DropdownMenuItem
-                      class="bg-elevation-2-hover w-full cursor-pointer rounded-md px-4 py-1.5 pr-6 text-left flex items-center gap-2 text-red-500"
+                      class="bg-elevation-2-hover w-full cursor-pointer rounded-apple px-4 py-1.5 pr-6 text-left flex items-center gap-2 text-red-500"
                       @click="deleteBoardModal(board.id)"
                     >
                       <span>

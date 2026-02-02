@@ -45,7 +45,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       </h2>
       <div id="theme-selection" class="flex flex-row gap-4" v-if="!theme.autoThemeEnabled">
         <div
-          class="bg-elevation-1 bg-elevation-2-hover flex min-w-36 cursor-pointer flex-col items-center justify-center rounded-md p-2 text-xl font-semibold"
+          class="bg-elevation-1 bg-elevation-2-hover flex min-w-36 cursor-pointer flex-col items-center justify-center rounded-apple p-2 text-xl font-semibold"
           @click="setTheme('light')"
         >
           <SunIcon :class="themeIconClass('light')" class="size-8" />
@@ -55,7 +55,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         </div>
 
         <div
-          class="bg-elevation-1 bg-elevation-2-hover flex min-w-36 cursor-pointer flex-col items-center justify-center rounded-md p-2 text-xl font-semibold"
+          class="bg-elevation-1 bg-elevation-2-hover flex min-w-36 cursor-pointer flex-col items-center justify-center rounded-apple p-2 text-xl font-semibold"
           @click="setTheme('dark')"
         >
           <MoonIcon :class="themeIconClass('dark')" class="size-8" />
@@ -65,7 +65,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         </div>
 
         <div
-          class="bg-elevation-1 bg-elevation-2-hover flex min-w-36 cursor-pointer flex-col items-center justify-center rounded-md p-2 text-xl font-semibold"
+          class="bg-elevation-1 bg-elevation-2-hover flex min-w-36 cursor-pointer flex-col items-center justify-center rounded-apple p-2 text-xl font-semibold"
           @click="setTheme('catppuccin')"
         >
           <IconCatppuccin
@@ -78,7 +78,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         </div>
 
         <div
-          class="bg-elevation-1 bg-elevation-2-hover flex min-w-36 cursor-pointer flex-col items-center justify-center rounded-md p-2 text-xl font-semibold"
+          class="bg-elevation-1 bg-elevation-2-hover flex min-w-36 cursor-pointer flex-col items-center justify-center rounded-apple p-2 text-xl font-semibold"
           @click="setTheme('custom')"
         >
           <SwatchIcon :class="themeIconClass('custom')" class="size-8" />
@@ -140,14 +140,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         }}</span>
         <div class="my-2 flex flex-row gap-2">
           <button
-            class="bg-elevation-1 bg-elevation-2-hover border-accent flex cursor-pointer flex-row items-center gap-2 rounded-md border border-dotted px-4 py-1"
+            class="bg-elevation-1 bg-elevation-2-hover border-accent flex cursor-pointer flex-row items-center gap-2 rounded-apple border border-dotted px-4 py-1"
             @click="importThemeFromJson"
           >
             <ArrowDownTrayIcon class="size-4" />
             {{ $t("general.importAction") }}
           </button>
           <button
-            class="bg-elevation-1 bg-elevation-2-hover border-accent flex cursor-pointer flex-row items-center gap-2 rounded-md border border-dotted px-4 py-1"
+            class="bg-elevation-1 bg-elevation-2-hover border-accent flex cursor-pointer flex-row items-center gap-2 rounded-apple border border-dotted px-4 py-1"
             @click="exportThemeToJson"
           >
             <ArrowUpTrayIcon class="size-4" />
@@ -355,7 +355,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
               >
             </div>
             <button
-              class="text-buttons bg-accent transition-button rounded-md px-4 py-2"
+              class="text-buttons bg-accent transition-button rounded-apple px-4 py-2"
               @click="deleteBoardModalVisible = true"
             >
               Delete

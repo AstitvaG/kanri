@@ -19,7 +19,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
 <template>
   <div
-    class="bg-elevation-1 relative flex flex-row items-center gap-2 rounded-md px-2"
+    class="bg-elevation-1 relative flex flex-row items-center gap-2 rounded-apple px-2"
   >
     <span v-if="searchFilter" class="shrink-0 p-1 font-bold">{{
       searchFilter
@@ -36,7 +36,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
     />
     <button
       v-if="(displayModel?.length ?? 0) > 0 || searchFilter"
-      class="bg-elevation-1 bg-elevation-2-hover absolute right-2 shrink-0 rounded-md p-1"
+      class="bg-elevation-1 bg-elevation-2-hover absolute right-2 shrink-0 rounded-apple p-1"
       @click="clearSearch"
     >
       <XMarkIcon class="size-4 shrink-0 grow-0" />
@@ -44,28 +44,28 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
     <PhMagnifyingGlass v-else class="size-4" />
     <div
       v-if="showSuggestions"
-      class="bg-elevation-1 border-elevation-2 absolute left-0 top-10 z-10 -mr-2 w-full rounded-md border p-2"
+      class="bg-elevation-1 border-elevation-2 absolute left-0 top-10 z-10 -mr-2 w-full rounded-apple border p-2"
     >
       <div>
         <span class="text-dim-3 text-sm">search options</span>
       </div>
       <ul class="mt-0.5 text-sm">
         <li
-          class="group/item bg-elevation-2-hover flex cursor-pointer items-center justify-between rounded-md p-1 py-1.5"
+          class="group/item bg-elevation-2-hover flex cursor-pointer items-center justify-between rounded-apple p-1 py-1.5"
           @mousedown="addFilter('name:')"
         >
           <span>name: search by name</span>
           <span class="group/edit invisible group-hover/item:visible">+</span>
         </li>
         <li
-          class="group/item bg-elevation-2-hover flex cursor-pointer items-center justify-between rounded-md p-1 py-1.5"
+          class="group/item bg-elevation-2-hover flex cursor-pointer items-center justify-between rounded-apple p-1 py-1.5"
           @mousedown="addFilter('tag:')"
         >
           <span>tag: search by tag name</span>
           <span class="group/edit invisible group-hover/item:visible">+</span>
         </li>
         <li
-          class="group/item bg-elevation-2-hover flex cursor-pointer items-center justify-between rounded-md p-1 py-1.5"
+          class="group/item bg-elevation-2-hover flex cursor-pointer items-center justify-between rounded-apple p-1 py-1.5"
           @mousedown="addFilter('description:')"
         >
           <span>description: search by description</span>

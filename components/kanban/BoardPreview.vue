@@ -38,7 +38,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         <div
           v-for="column in board.columns"
           :key="column.id"
-          class="bg-elevation-2 flex h-min w-10 shrink-0 flex-col gap-px rounded-sm p-0.5 text-[3px] font-bold"
+          class="bg-elevation-2 flex h-min w-10 shrink-0 flex-col gap-px rounded-apple-sm p-0.5 text-[3px] font-bold"
         >
           {{ column.title }}
           <div
@@ -71,12 +71,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
     <div
       v-for="column in board.columns"
       :key="column.id"
-      class="bg-accent-no-hover flex h-min w-10 shrink-0 flex-col gap-0.5 rounded-sm p-1"
+      class="bg-accent-no-hover flex h-min w-10 shrink-0 flex-col gap-0.5 rounded-apple-sm p-1"
     >
       <div
         v-for="card in column.cards"
         :key="card.id"
-        class="bg-elevation-2 mb-1 rounded-sm p-2"
+        class="bg-elevation-2 mb-1 rounded-apple-sm p-2"
       />
     </div>
   </div>

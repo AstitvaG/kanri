@@ -39,13 +39,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
     </p>
     <div class="mb-8 flex flex-row gap-4">
       <nuxt-link
-        class="bg-elevation-1 bg-elevation-2-hover rounded-md p-2"
+        class="bg-elevation-1 bg-elevation-2-hover rounded-apple p-2"
         to="/licenses/dev_js"
       >
         More JavaScript dependencies (includes dev deps)
       </nuxt-link>
       <nuxt-link
-        class="bg-elevation-1 bg-elevation-2-hover rounded-md p-2"
+        class="bg-elevation-1 bg-elevation-2-hover rounded-apple p-2"
         to="/licenses/rust"
       >
         Rust dependencies

@@ -39,7 +39,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
             id="boardName"
             ref="boardNameInput"
             v-model="newBoardName"
-            class="placeholder:text-dim-3-placeholder bg-elevation-2 border-elevation-3 border-accent-focus h-10 max-w-80 rounded-md border p-2 transition-colors duration-300 focus:border-2 focus:border-dotted focus:outline-none"
+            class="placeholder:text-dim-3-placeholder bg-elevation-2 border-elevation-3 border-accent-focus h-10 max-w-80 rounded-apple border p-2 transition-colors duration-300 focus:border-2 focus:border-dotted focus:outline-none"
             maxlength="500"
             :placeholder="$t('modals.newBoard.placeholder')"
             type="text"
@@ -78,11 +78,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
             <div
               v-for="(column, index) in columns"
               :key="column.id"
-              class="bg-elevation-2 column flex flex-row items-center gap-2 rounded-lg p-2"
+              class="bg-elevation-2 column flex flex-row items-center gap-2 rounded-apple-lg p-2"
             >
               <input
                 v-model="column.title"
-                class="bg-elevation-3 text-normal w-32 text-ellipsis rounded-md border-none px-2 py-1 focus:outline-none"
+                class="bg-elevation-3 text-normal w-32 text-ellipsis rounded-apple border-none px-2 py-1 focus:outline-none"
                 type="text"
               />
               <PhTrash
@@ -103,7 +103,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
             {{ $t("general.cancelAction") }}
           </button>
           <button
-            class="bg-accent text-buttons transition-button rounded-md px-4 py-2"
+            class="bg-accent text-buttons transition-button rounded-apple px-4 py-2"
             @click="createNewBoard()"
           >
             {{ $t("modals.newBoard.createBoardAction") }}

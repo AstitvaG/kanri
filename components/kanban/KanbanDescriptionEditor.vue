@@ -25,11 +25,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
     :tippy-options="{ duration: 100 }"
   >
     <div
-      class="bg-primary border-elevation-1 -mb-1.5 flex flex-row items-center gap-1 rounded-md border px-2 py-1"
+      class="bg-primary border-elevation-1 -mb-1.5 flex flex-row items-center gap-1 rounded-apple border px-2 py-1"
     >
       <button
         :class="{ 'is-active': editor.isActive('bold') }"
-        class="bg-elevation-2-hover rounded-md p-1"
+        class="bg-elevation-2-hover rounded-apple p-1"
         title="Bold"
         @click="editor.chain().focus().toggleBold().run()"
       >
@@ -37,7 +37,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       </button>
       <button
         :class="{ 'is-active': editor.isActive('italic') }"
-        class="bg-elevation-2-hover rounded-md p-1"
+        class="bg-elevation-2-hover rounded-apple p-1"
         title="Italic"
         @click="editor.chain().focus().toggleItalic().run()"
       >
@@ -45,7 +45,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       </button>
       <button
         :class="{ 'is-active': editor.isActive('strike') }"
-        class="bg-elevation-2-hover rounded-md p-1"
+        class="bg-elevation-2-hover rounded-apple p-1"
         title="Strikethrough"
         @click="editor.chain().focus().toggleStrike().run()"
       >
@@ -53,7 +53,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       </button>
       <button
         :class="{ 'is-active': editor.isActive('code') }"
-        class="bg-elevation-2-hover rounded-md p-1"
+        class="bg-elevation-2-hover rounded-apple p-1"
         title="Code"
         @click="editor.chain().focus().toggleCode().run()"
       >
@@ -61,7 +61,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       </button>
       <button
         :class="{ 'is-active': editor.isActive('codeBlock') }"
-        class="bg-elevation-2-hover rounded-md p-1"
+        class="bg-elevation-2-hover rounded-apple p-1"
         title="Code Block"
         @click="editor.chain().focus().toggleCodeBlock().run()"
       >
@@ -72,7 +72,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
 
       <button
         :class="{ 'is-active': editor.isActive({ textAlign: 'left' }) }"
-        class="bg-elevation-2-hover rounded-md p-1"
+        class="bg-elevation-2-hover rounded-apple p-1"
         title="Align Left"
         @click="editor.chain().focus().setTextAlign('left').run()"
       >
@@ -80,7 +80,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       </button>
       <button
         :class="{ 'is-active': editor.isActive({ textAlign: 'center' }) }"
-        class="bg-elevation-2-hover rounded-md p-1"
+        class="bg-elevation-2-hover rounded-apple p-1"
         title="Align Center"
         @click="editor.chain().focus().setTextAlign('center').run()"
       >
@@ -88,7 +88,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       </button>
       <button
         :class="{ 'is-active': editor.isActive({ textAlign: 'right' }) }"
-        class="bg-elevation-2-hover rounded-md p-1"
+        class="bg-elevation-2-hover rounded-apple p-1"
         title="Align Right"
         @click="editor.chain().focus().setTextAlign('right').run()"
       >
@@ -96,7 +96,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       </button>
       <button
         :class="{ 'is-active': editor.isActive({ textAlign: 'justify' }) }"
-        class="bg-elevation-2-hover rounded-md p-1"
+        class="bg-elevation-2-hover rounded-apple p-1"
         title="Justify"
         @click="editor.chain().focus().setTextAlign('justify').run()"
       >
@@ -104,7 +104,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
       </button>
     </div>
   </bubble-menu>
-  <editor-content class="bg-elevation-2 mt-1 rounded-sm" :editor="editor" />
+  <editor-content class="bg-elevation-2 mt-1 rounded-apple-sm" :editor="editor" />
 </template>
 
 <script>
